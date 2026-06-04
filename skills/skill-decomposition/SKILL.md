@@ -1,6 +1,6 @@
 ---
 name: skill-decomposition
-description: Identify reusable structure inside a large SKILL.md without premature extraction: task-level workflow, atomic candidates, event-driven repairs, and verification checks. Use when improving existing skills, capturing repeated failures, removing duplicate skill logic, or preparing skills for a measured router experiment.
+description: "Identify reusable structure inside a large SKILL.md without premature extraction: task-level workflow, atomic candidates, event-driven repairs, and verification checks. Use when improving existing skills, capturing repeated failures, removing duplicate skill logic, or preparing skills for a measured router experiment."
 ---
 
 # Skill Decomposition
