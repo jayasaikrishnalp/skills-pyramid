@@ -9,23 +9,30 @@ Skills Pyramid is a small skill suite that makes coding agents use skills delibe
 It does not change Claude Code, Codex, Cursor, Gemini, or any agent internals. It works like a methodology layer:
 
 1. route to the right skills
-2. decompose large skills into reusable parts
+2. preserve real failure repairs as durable knowledge
 3. verify skill-driven work before claiming success
 4. propose skill improvements from real traces
 
 ## Why
 
-Most agents see only skill names and descriptions until a skill triggers. That is good for token cost, but it creates a problem: skills stay isolated. Agents miss reusable substeps, repeat failure fixes, and load whole procedures when only a small part matters.
+Most agents see only skill names and descriptions until a skill triggers. That is good enough for many tasks. The biggest gap is not hierarchy; it is that failures and verification habits vanish into chat history.
 
-Skills Pyramid gives agents a process for turning a flat skill library into a practical hierarchy:
+Skills Pyramid focuses first on cheap behavior that already pays off:
+
+- event-driven repairs: `AccessDenied -> re-pick role`, `ExpiredToken -> re-assume`, `empty output -> verify identity`
+- verification checklists: prove account, role, region, and command scope before reporting
+- minimal routing: choose the smallest useful skill set before loading full bodies
+
+The hierarchy is a later optimization, not the first promise:
 
 ```text
-abstract pattern
-  -> task-level skill
-      -> atomic subskill
-      -> event-driven repair
-      -> verification check
+task-level skill
+  -> inline repairs
+  -> inline verification
+  -> atomic candidates only when reuse is proven
 ```
+
+Atomic skill files are earned. Keep tiny operations inline until at least three task skills reuse them.
 
 ## Included Skills
 
@@ -33,7 +40,7 @@ abstract pattern
 | --- | --- |
 | `using-skills-pyramid` | Meta-skill. Makes the agent check skill routing before doing skill-heavy work. |
 | `skill-routing` | Selects which skills should be loaded and which should stay unloaded. |
-| `skill-decomposition` | Extracts atomic skills, abstract patterns, and failure repairs from a large `SKILL.md`. |
+| `skill-decomposition` | Identifies reusable candidates, event-driven repairs, and verification checks without premature extraction. |
 | `skill-verification` | Verifies work done through skills with evidence before completion claims. |
 | `skill-refinement-proposal` | Proposes safe skill updates from successful or failed task traces. |
 
@@ -102,6 +109,12 @@ python3 scripts/validate_skills.py
 
 Do not auto-edit live skills after every task. Propose changes first. Apply only grounded, reusable, verified improvements.
 
+## Router Experiment
+
+The routing/indexer idea must earn its place with measurement. Start with 2-3 real skills and compare against flat description matching.
+
+See [docs/router-experiment.md](docs/router-experiment.md).
+
 ## Status
 
-Early plugin + skill-suite prototype. No database, no graph engine, no router service yet. The first goal is behavior change through skills, like Superpowers. A runtime indexer can come later if the manual workflow proves useful.
+Early plugin + skill-suite prototype. No database, no graph engine, no router service yet. Current value is repairs plus verification. The hierarchy and router are bets to prove with small experiments before broad library migration.

@@ -45,5 +45,5 @@ Not selected:
 - <skill>: <reason>
 
 Missing:
-- <candidate skill or atomic subskill>: <why it would help>
+- <candidate repair, verification check, or reusable operation>: <why it would help>
 ```
