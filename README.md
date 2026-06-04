@@ -1,5 +1,7 @@
 # Skills Pyramid
 
+![Skills Pyramid hero](assets/skills-pyramid-hero.png)
+
 Superpowers for skill use.
 
 Skills Pyramid is a small skill suite that makes coding agents use skills deliberately instead of treating them as a flat folder of prompt files.
@@ -35,7 +37,33 @@ abstract pattern
 | `skill-verification` | Verifies work done through skills with evidence before completion claims. |
 | `skill-refinement-proposal` | Proposes safe skill updates from successful or failed task traces. |
 
-## Install
+## Install As Plugin
+
+Claude Code:
+
+```text
+/plugin marketplace add jayasaikrishnalp/skills-pyramid
+/plugin install skills-pyramid@skills-pyramid
+```
+
+Local Claude Code development:
+
+```bash
+claude --plugin-dir .
+```
+
+Codex CLI:
+
+```bash
+codex plugin marketplace add jayasaikrishnalp/skills-pyramid
+codex plugin add skills-pyramid@skills-pyramid
+```
+
+Then start a new agent session so plugin skills and hooks reload.
+
+## Manual Skill Install
+
+Use this only when plugin install is unavailable. Manual skill copy installs the skills, but it does not install the SessionStart bootstrap hook.
 
 Claude Code:
 
@@ -51,6 +79,19 @@ cp -R skills/* ~/.agents/skills/
 
 Then start a new agent session so skill metadata reloads.
 
+## Hook Bootstrap
+
+The plugin includes a Claude/Codex-compatible `SessionStart` hook:
+
+```text
+session starts
+  -> hooks/session-start reads skills/using-skills-pyramid/SKILL.md
+  -> injects only the bootstrap skill into context
+  -> agent routes to other pyramid skills only when needed
+```
+
+This keeps normal skill lazy-loading behavior. It does not inject every skill body.
+
 ## Validate
 
 ```bash
@@ -63,4 +104,4 @@ Do not auto-edit live skills after every task. Propose changes first. Apply only
 
 ## Status
 
-Early skill-suite prototype. No database, no graph engine, no router service yet. The first goal is behavior change through skills, like Superpowers. A runtime indexer can come later if the manual workflow proves useful.
+Early plugin + skill-suite prototype. No database, no graph engine, no router service yet. The first goal is behavior change through skills, like Superpowers. A runtime indexer can come later if the manual workflow proves useful.

@@ -1,0 +1,42 @@
+{
+  "name": "skills-pyramid",
+  "version": "0.1.0",
+  "description": "A skills methodology layer for routing, decomposing, verifying, and improving agent skills.",
+  "author": {
+    "name": "Jaya Sai Krishna Yerrasetty",
+    "email": "jayasaikrishnalp@users.noreply.github.com",
+    "url": "https://github.com/jayasaikrishnalp"
+  },
+  "homepage": "https://github.com/jayasaikrishnalp/skills-pyramid",
+  "repository": "https://github.com/jayasaikrishnalp/skills-pyramid",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "routing",
+    "decomposition",
+    "verification",
+    "self-improving-agents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Skills Pyramid",
+    "shortDescription": "Route, decompose, verify, and refine agent skills",
+    "longDescription": "Skills Pyramid adds a Superpowers-style methodology layer for coding agents that use skills. It bootstraps deliberate skill routing, skill decomposition, evidence-based verification, and safe refinement proposals without changing agent internals.",
+    "developerName": "Jaya Sai Krishna Yerrasetty",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Help me improve this skill library.",
+      "Which skills should this agent use for the task?"
+    ],
+    "websiteURL": "https://github.com/jayasaikrishnalp/skills-pyramid",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}

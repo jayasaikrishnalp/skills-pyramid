@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skills-pyramid",
+  "description": "Skills Pyramid marketplace",
+  "owner": {
+    "name": "Jaya Sai Krishna Yerrasetty",
+    "url": "https://github.com/jayasaikrishnalp"
+  },
+  "plugins": [
+    {
+      "name": "skills-pyramid",
+      "description": "Route, decompose, verify, and refine agent skills with a SessionStart bootstrap hook.",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/jayasaikrishnalp/skills-pyramid.git"
+      },
+      "version": "0.1.0",
+      "category": "productivity",
+      "strict": true
+    }
+  ]
+}

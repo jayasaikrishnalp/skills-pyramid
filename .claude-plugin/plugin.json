@@ -1,0 +1,19 @@
+{
+  "name": "skills-pyramid",
+  "description": "Bootstrap skill routing, decomposition, verification, and refinement workflows for Claude Code skills.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Jaya Sai Krishna Yerrasetty",
+    "email": "jayasaikrishnalp@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/jayasaikrishnalp/skills-pyramid",
+  "repository": "https://github.com/jayasaikrishnalp/skills-pyramid",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "routing",
+    "verification",
+    "self-improving-agents",
+    "workflows"
+  ]
+}
